@@ -26,8 +26,7 @@ class HomeScreenState extends State<HomeScreen> {
 
   void _logout() async {
     final prefs = await SharedPreferences.getInstance();
-
-    prefs.setBool('isLogged', false);
+    prefs.clear();
     Provider.of<User>(context, listen: false).changeLoggedStatus(false);
     Navigator.pushReplacementNamed(context, "/");
   }

@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 class User extends ChangeNotifier {
   String _email;
   String _password;
-  bool _isLogged = false;
-  User();
+  bool _isLogged;
+  
+  User(this._email,this._password, this._isLogged);
 
-  void changeData(String email, String password) {
+  void logIn(String email, String password) {
     this._email = email;
     this._password = password;
+    this._isLogged = true;
+    print('USER LOGIN FROM CONTROLLER');
     notifyListeners();
   }
 
